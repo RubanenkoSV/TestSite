@@ -2,7 +2,6 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,14 +14,13 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class TestBase {
 
-
     public static WebDriver driver;
-    static ChromeDriverService service;
+    private static ChromeDriverService service;
     public static WebDriverWait wait;
     private final static String PATH_TO_CHROMEDRIVER = "driver/chromedriver";
 
 
-    public TestBase() {
+    TestBase() {
         try {
             service = new ChromeDriverService.Builder()
                     .usingDriverExecutable(new File(PATH_TO_CHROMEDRIVER))
@@ -45,18 +43,18 @@ public class TestBase {
         }
     }
 
-    public void goToURL(String url, boolean maximizeWindow) {
+    void goToURL(String url, boolean maximizeWindow) {
         driver.get(url);
         if (maximizeWindow) {
             driver.manage().window().maximize();
         }
     }
 
-    public boolean isElementDisplayed(String xpathLocator) {
+    boolean isElementDisplayed(String xpathLocator) {
         return (driver.findElement(By.xpath(xpathLocator)).isDisplayed());
     }
 
-    public boolean isPageTitleContained(String text) {
+    boolean isPageTitleContained(String text) {
         String title = driver.getTitle();
         boolean result = false;
         if (title.contains(text)) result = true;
