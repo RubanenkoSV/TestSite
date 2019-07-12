@@ -8,6 +8,7 @@ public class HomePage extends BasePage {
             "label[contains(@for, 'fromCity')]";
     public static String FIELD_TO_CITY = "//div[contains(@class,'hdsw_inputBox selectHtlCity')]/" +
             "label[contains(@for, 'toCity')]";
+    public static String SEARCH_BUTTON = "//button[text()[contains(.,'Search')]]";
 
     public void clickLinkFromNavBar(String linkName) {
         clickOnElement(String.format(LINK_ON_NAV_MENU, linkName));
