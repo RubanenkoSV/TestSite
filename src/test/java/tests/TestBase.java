@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -60,5 +61,15 @@ public class TestBase {
         if (title.contains(text)) result = true;
         return result;
     }
+
+    boolean isElementExists(String xpathLocator) {
+        try {
+            driver.findElement(By.xpath(xpathLocator));
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
+    }
+
 
 }
