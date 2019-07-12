@@ -7,13 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import static tests.TestBase.driver;
 import static tests.TestBase.wait;
 
-public class BasePage {
+class BasePage {
 
-    public void clickOn(String xpathLocator) {
-
+    void clickOnElement(String xpathLocator) {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(xpathLocator))));
         driver.findElement(By.xpath(xpathLocator)).click();
-
     }
 
 }
