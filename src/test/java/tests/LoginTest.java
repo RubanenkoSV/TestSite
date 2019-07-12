@@ -18,9 +18,10 @@ public class LoginTest extends TestBase {
     public void login() {
         HomePage home = new HomePage();
         home.clickLinkFromNavBar("Holiday");
-        Assert.assertTrue(isElementDisplayed(HomePage.FIELD_FROM_CITY),"Error element isn't displayed");
-        Assert.assertTrue(isElementDisplayed(HomePage.FIELD_TO_CITY),"Error element isn't displayed");
-        Assert.assertTrue(isPageTitleContained("Holiday Packages"), "Title wrong");
+        Assert.assertTrue(isElementExists(HomePage.SEARCH_BUTTON), "Error: Button is absent");
+        Assert.assertTrue(isElementDisplayed(HomePage.FIELD_FROM_CITY),"Error: Element isn't displayed");
+        Assert.assertTrue(isElementDisplayed(HomePage.FIELD_TO_CITY),"Error: Element isn't displayed");
+        Assert.assertTrue(isPageTitleContained("Holiday Packages"), "Error: Wrong title");
     }
 
     @AfterTest
